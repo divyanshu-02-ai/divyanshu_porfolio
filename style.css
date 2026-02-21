@@ -1,0 +1,211 @@
+:root {
+    --primary: #7c3aed;
+    --secondary: #3b82f6;
+    --text-white: #f8fafc;
+    --text-gray: #0b0c0d;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    color: var(--text-white);
+    line-height: 1.6;
+
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #1e3a8a, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    padding: 100px 10%;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+/* ===== HEADER ===== */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(15px);
+    padding: 20px 10%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* ===== HERO ===== */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 180px 10% 120px 10%;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    background: linear-gradient(to right, #7c3aed, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 60px rgba(124, 58, 237, 0.5);
+    transition: 0.4s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== BUTTON ===== */
+.btn-outline {
+    background: linear-gradient(to right, #7c3aed, #3b82f6);
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
+}
+
+/* ===== GLASS CARDS ===== */
+.card, .full-card, .cert-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 30px;
+    transition: 0.4s ease;
+}
+
+.card:hover,
+.full-card:hover,
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+}
+
+.full-card {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.full-card p {
+    color: var(--text-gray);
+    margin-top: 10px;
+}
+
+/* ===== GRID ===== */
+.grid, .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* ===== CONTACT BOX ===== */
+.contact-box {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid var(--glass-border);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-gray);
+    border-top: 1px solid var(--glass-border);
+    margin-top: 80px;
+}
+
+/* ===== FADE ANIMATION ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 160px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-image img {
+        width: 240px;
+        height: 240px;
+    }
+
+    .container {
+        padding: 70px 7%;
+    }
+}
